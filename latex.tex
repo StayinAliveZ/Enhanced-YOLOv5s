@@ -1,0 +1,78 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+% !Mode:: "TeX:UTF-8"
+
+\documentclass{resume}
+\usepackage{zh_CN-Adobefonts_external} % Simplified Chinese Support using external fonts (./fonts/zh_CN-Adobe/)
+%\usepackage{zh_CN-Adobefonts_internal} % Simplified Chinese Support using system fonts
+\usepackage{linespacing_fix} % disable extra space before next section
+\usepackage{cite}
+
+\begin{document}
+\pagenumbering{gobble} % suppress displaying page number
+
+\name{张恩宝}
+
+\basicInfo{
+  \email{zhangenbao@stumail.ysu.edu.cn} \textperiodcentered\ 
+  \phone{(+86) 175-2685-6526} \textperiodcentered\ 
+  \linkedin[北京]{https://www.linkedin.com/in/billryan8}}
+ 
+\section{\faGraduationCap\  教育背景}
+\datedsubsection{\textbf{燕山大学}}{2023.09 -- 2026.06}
+\textit{研究生　}\ 专业：人工智能
+\datedsubsection{\textbf{天津工业大学}}{2019.09 -- 2023.06}
+\textit{本科　　}\  专业：电子信息工程
+
+\section{\faUsers\ 实习/项目经历}
+\datedsubsection{\textbf{联想诺谛（北京）智能科技有限公司}}{2025年1月 -- 2025年5月}
+\role{AI部：NLP算法实习生}
+\datedsubsection{\textbf{工作内容}}
+\begin{itemize}[itemsep=1ex, topsep=1ex, parsep=0.5ex, leftmargin=1em]
+  \item 专注于大模型 CoT (Chain of Thought)推理技术，探索大模型\textbf{推理}及\textbf{涌现}能力。研究 SFT（监督微调）和 强化学习GRPO（基于规则的策略优化）等方法，改进优化大模型的推理生成效果。
+    \item \textbf{合成 CoT 推理数据对大模型推理生成的影响：}
+  {\linespread{1.2}\selectfont
+  由模型 Qwen-72b、DeepSeekV3 生成 CoT 推理合成数据，合成流程包括 4 种搜索策略(探索、回溯、验证、校正)以确保数据具备推理特性和正确的结果。SFT 方法基于 LoRA 对 Qwen2.5-7b 进行优化；测试基于 SGLang 部署微调模型后进行评估。模型生成效果具备推理模式，但答案准确性相较基准模型略微降低。
+  }
+  \item \textbf{GRPO算法对大模型推理效果的影响：}基于 Unsloth 框架使用 GRPO 算法对 Qwen2.5 系列(7B、14B、32B)进行RL-GRPO 微调。奖励模版为<格式奖励>+<确定性奖励>，格式奖励依据数据集样式设置了具体奖励。经测试，模型生成效果具备分析推理模式（推理 Token 较为简洁）。Qwen2.5-32B 经 GRPO 优化后，答案准确率接近 QwQ-32B 模型，高于基准模型 3.51%
+  \item \textbf{R1-Distill 推理数据 SFT + GRPO 对大模型推理效果的影响：}首先使用 R1 蒸馏数据 150k (中英混合) 对 Qwen2.5-7B 模型进行 LoRA 微调；基于 SFT 后的模型，引入 GRPO 进行强化学习优化。经测试，7B 模型输出具备推理模式（输出模板为：<think> + <answer>），答案准确性高于基准模型 1.57%
+
+\end{itemize}
+
+\datedsubsection{\textbf{Lenovo 数据综合分析（智能汇总）}}{2025年1月 -- 2025年5月}
+\role{项目演示：\url{https://bcnfeafpcwdr.feishu.cn/wiki/KKnrwAmu1idS1dkqqLHcknGWnZd?from=from_copylink}}
+
+\begin{itemize}[itemsep=1ex, topsep=1ex, parsep=0.5ex, leftmargin=1em]
+  \item 为提升 Lenovo 业务数据分析效率与质量，在决策层方面提供数据分析。核心方法是基于检索和多视角主题大纲合成，从不同主题视角综合汇总，形成全面、深入的分析报告；技术实现上，选用开源项目 storm 作为开发框架，结合本地部署的 qwen-72b 模型及检索器，对检索信息进行深度分析和整合。
+\end{itemize}
+
+
+
+% Reference Test
+%\datedsubsection{\textbf{Paper Title\cite{zaharia2012resilient}}}{May. 2015}
+%An xxx optimized for xxx\cite{verma2015large}
+%\begin{itemize}
+%  \item main contribution
+%\end{itemize}
+
+\section{\faCogs\ 个人技能}
+% increase linespacing [parsep=0.5ex]
+\begin{itemize}[parsep=0.5ex]
+  \item \textbf{专业技能:} 熟悉 Python 语言、PyTorch 框架、Linux、Docker、Git、开源平台 Hugging Face 、GitHub（如 Llama-Factory、vLLM、SGLang、及其他优秀开源项目等）
+  \item \textbf{英语技能：}大学英语四/六级 CET-4/6，具备良好的英文文献检索及阅读能力
+\end{itemize}
+
+
+\section{\faInfo\ 其他}
+% increase linespacing [parsep=0.5ex]
+\begin{itemize}[parsep=0.5ex]
+  \item \textbf{智能领域：}具备深度学习、AIGC 相关知识，熟悉 NLP、CV 基础理论和算法，Transformer 系列模型；具有 SFT、RL 优化经验。
+  \item \textbf{团队协作：}有很强的责任心和团体协作能力。工作中经常分享 AI 相关论文、技术报告等，在部门组会中分享过 DeepSeek-R1、Kimi-1.5、Gemini-2.5-Pro、CoT 技术及相关工作等。
+
+\end{itemize}
+
+%% Reference
+%\newpage
+%\bibliographystyle{IEEETran}
+%\bibliography{mycite}
+\end{document}
